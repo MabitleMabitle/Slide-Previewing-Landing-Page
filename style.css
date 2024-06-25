@@ -1,0 +1,402 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Fjalla One", serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container {
+  inline-size: 100%;
+  block-size: 100vh;
+  padding: 3rem;
+  overflow: hidden;
+}
+
+.landing {
+  inline-size: 100%;
+  block-size: 100%;
+  position: relative;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.7);
+}
+
+.navigation-bar {
+  position: absolute;
+  inline-size: 100%;
+  block-size: 10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 5rem;
+  z-index: 10;
+}
+
+.logo i {
+  font-size: 5rem;
+  -webkit-text-stroke: 0.1rem #fff;
+  color: transparent;
+  cursor: pointer;
+}
+
+.navigation a {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #fff;
+  margin-inline: 3rem;
+  position: relative;
+}
+
+.navigation a::before {
+  content: "";
+  inline-size: 100%;
+  block-size: 0.2rem;
+  background-color: #fff;
+  position: absolute;
+  inset-block-start: -0.5rem;
+  inset-inline-start: 0;
+  transform: scaleX(0);
+  /*  moving their pivot when scaling */
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+
+.navigation a:hover:before {
+  transform: scale(1);
+}
+
+.navigation a::after {
+  content: "";
+  inline-size: 100%;
+  block-size: 0.2rem;
+  background-color: #fff;
+  position: absolute;
+  inset-block-end: -0.5rem;
+  inset-inline-start: 0;
+  transform: scale(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+}
+.navigation a:hover::after {
+  transform: scale(1);
+}
+
+.menu-icon {
+  inline-size: 6rem;
+  height: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.line {
+  inline-size: 100%;
+  block-size: 0.4rem;
+  background-color: #fff;
+  transition: transform 0.5s;
+}
+
+.menu-icon:hover .line {
+  transform: scaleX(0.5);
+}
+
+.line-one {
+  transform-origin: right;
+}
+.line-two {
+  transform-origin: left;
+}
+
+.slides {
+  inline-size: 100%;
+  block-size: 100%;
+  background-color: #000;
+}
+
+.slide {
+  inline-size: 100%;
+  block-size: 100%;
+  position: absolute;
+  transition: opacity 2s;
+}
+
+.slide-image-wrapper {
+  inline-size: 100%;
+  block-size: 100%;
+  background-color: #000;
+}
+.slide-image-wrapper img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+}
+
+.banner {
+  inline-size: 100rem;
+  block-size: 100rem;
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.background-heading {
+  /* relative to landing */
+  position: absolute;
+  inset-block-start: 17%;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  font-family: "Inknut Antiqua", serif;
+  font-size: 20rem;
+  -webkit-text-stroke: 0.5rem #fff;
+  color: transparent;
+  letter-spacing: 1.5rem;
+  opacity: 0.4;
+}
+
+.main-heading {
+  position: absolute;
+  inset-block-start: 52%;
+  inset-inline-start: 22%;
+  font-size: 8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.5rem;
+}
+
+.food-description {
+  position: absolute;
+  inset-block-end: 35%;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  inline-size: 80rem;
+  font-size: 1.8rem;
+  font-weight: 300;
+  text-align: center;
+  color: #fff;
+}
+
+.slide-button {
+  inline-size: 20rem;
+  block-size: 5rem;
+  position: absolute;
+  inset-block-end: 27%;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  border: 0.1rem solid #fff;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.6s;
+  overflow: hidden;
+}
+
+.slide-button:hover {
+  color: #000;
+  transition: color 0.6s 0.3s;
+}
+
+.slide-button::before {
+  content: "";
+  inline-size: 20rem;
+  block-size: 10rem;
+  background-color: #fff;
+  position: absolute;
+  inset-inline-start: -14rem;
+  inset-block-start: 0;
+  z-index: -10;
+  transform: rotateZ(45deg);
+  transition: 0.6s;
+}
+
+.slide-button:hover::before {
+  transform: rotateZ(45deg) scale(2.4);
+}
+
+.slide-button::after {
+  content: "";
+  inline-size: 20rem;
+  block-size: 10rem;
+  background-color: #fff;
+  position: absolute;
+  inset-inline-end: -14rem;
+  inset-block-start: -5rem;
+  transform: rotateZ(45deg);
+  z-index: -10;
+  transition: 0.6s;
+}
+
+.slide-button:hover::after {
+  transform: rotateZ(45deg) scale(2.4);
+}
+
+.sidebar {
+  position: fixed;
+  inset-block-start: 0;
+  /* HIDING THE SIDEBAR */
+  inset-inline-end: -50rem;
+  inline-size: 50rem;
+  block-size: 100vh;
+  background-color: #ddd;
+  z-index: 100;
+  transition: right 0.5s cubic-bezier(1, 0, 0, 1);
+}
+
+.navigate.sidebar {
+  inset-inline-end: 0;
+}
+
+.sidebar i {
+  position: absolute;
+  inset-block-start: 2rem;
+  inset-inline-end: 5rem;
+  font-size: 8rem;
+  color: #555;
+  cursor: pointer;
+}
+
+.sidebar-navigation {
+  inline-size: 40rem;
+  block-size: 15rem;
+  border: 0.1rem solid #999;
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  /* centering the element */
+  transform: translate(-50%, -50%);
+  transition: height 0.5s;
+}
+
+.toggle .sidebar-navigation {
+  block-size: 60rem;
+}
+
+.sidebar-button {
+  inline-size: 40rem;
+  block-size: 15rem;
+  background-color: transparent;
+  border: none;
+  font-family: "Inknut Antiqua", sans-serif;
+  font-size: 6rem;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.1rem #222;
+  color: transparent;
+  cursor: pointer;
+}
+
+.sidebar-nav-items {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  inset-block-start: 30%;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.toggle .sidebar-nav-items {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.5s 0.5s;
+}
+
+.sidebar-nav-items a {
+  font-size: 3rem;
+  color: #888;
+  margin-block: 1rem;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.sidebar-nav-items a:hover {
+  color: #444;
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media (max-width: 1000px) {
+  html {
+    font-size: 50%;
+  }
+
+  .background-heading {
+    font-size: 16rem;
+    inset-block-start: 25%;
+  }
+
+  .food-description {
+    inline-size: 60rem;
+  }
+}
+
+@media (max-width: 800px) {
+  html {
+    font-size: 45%;
+  }
+
+  .navigation a {
+    margin-inline: 1rem;
+  }
+
+  .background-heading {
+    font-size: 14rem;
+    inset-block-start: 28%;
+  }
+  .main-heading {
+    font-size: 7rem;
+    inset-inline-start: 25%;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 40%;
+  }
+  .navigation {
+    display: none;
+  }
+  .background-heading {
+    font-size: 10rem;
+    inset-block-start: 33%;
+  }
+  .main-heading {
+    font-size: 6rem;
+    inset-inline-start: 27%;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 35%;
+  }
+
+  .sidebar {
+    inline-size: 100%;
+    inset-inline-end: -100%;
+  }
+
+  .main-heading {
+    font-size: 5rem;
+    inset-inline-start: 29%;
+  }
+
+  .food-description {
+    inline-size: 45rem;
+  }
+}
